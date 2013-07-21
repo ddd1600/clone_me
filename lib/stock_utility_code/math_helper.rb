@@ -18,13 +18,6 @@ class MathHelper
     distances
   end
   
-  def self.round_off_ar_ary_records_to(round_to, classy, column_name_string)
-    classy.where("#{column_name_string} IS NOT NULL").each do |a|
-      a[column_name_string.to_sym] = a[column_name_string.to_sym].round(round_to)
-      a.save
-    end
-  end
-  
   def self.get_linear_regression_values(ar_ary, xcol, ycol)
     xs = ar_ary.map(&xcol.to_sym)
     ys = ar_ary.map(&ycol.to_sym)
@@ -35,6 +28,15 @@ class MathHelper
     slope = mlr.coeffs['x']
     [slope, y_int]
   end
+  
+  def self.round_off_ar_ary_records_to(round_to, classy, column_name_string)
+    classy.where("#{column_name_string} IS NOT NULL").each do |a|
+      a[column_name_string.to_sym] = a[column_name_string.to_sym].round(round_to)
+      a.save
+    end
+  end
+  
+  
   
   def self.get_linear_regr_slope(ar_ary, column_name)
     column_name = column_name.to_sym

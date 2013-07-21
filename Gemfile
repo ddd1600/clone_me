@@ -19,6 +19,9 @@ end
 gem 'jquery-rails'
 gem 'bcrypt-ruby'
 
+gem 'statsample'
+gem 'descriptive-statistics'
+
 gem 'rb-readline'
 gem 'nokogiri'
 gem 'awesome_print'
