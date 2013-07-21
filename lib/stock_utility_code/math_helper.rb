@@ -5,7 +5,7 @@ class MathHelper
     regression_formula = MathHelper.get_linear_regression_values(ar_ary, xcol, ycol)
     m_regr = regression_formula.first
     y_regr = regression_formula.last
-    m_perp = (m_regr / 1 * -1)
+    m_perp = (1 / m_regr * -1)
     distances = []
     points.each do |pair|
       x = pair.first
