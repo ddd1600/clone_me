@@ -3,17 +3,19 @@ class MathHelper
   def self.get_distances_from_trendline(xcol, ycol, ar_ary) #also generates the trendline
     points = ar_ary.map { |r| [r[xcol.to_sym], r[ycol.to_sym]] }
     regression_formula = MathHelper.get_linear_regression_values(ar_ary, xcol, ycol)
-    m_regr = regression_formula.first
-    y_regr = regression_formula.last
-    m_perp = (1 / m_regr * -1)
+    m = regression_formula.first
+    b = regression_formula.last
     distances = []
-    points.each do |pair|
+    points.each_with_index do |pair, i|
       x = pair.first
       y = pair.last
-      y_perp = (y - (m_regr * x))
-      x_int = ((y_regr - y_perp) / (m_regr - m_perp))
-      y_int = ((m_regr * x_int) + y_regr)
-      distances << Math.hypot((y_int - y), (x_int - x)).abs
+      if x == nil
+        distances << nil
+      elsif y == nil
+        distances << nil
+      else
+      distances << ((y - m * x - b).abs / Math.sqrt(m**2 + 1))
+      end
     end
     distances
   end
