@@ -1,5 +1,19 @@
 class MathHelper
   
+  def self.get_stdeviations(distances)
+    sd = distances.compact.standard_deviation
+    sdvars = []
+    distances.each do |distance|
+      if distance == nil
+        sdvars << nil
+      else
+      sdvar = (distance / sd)
+      sdvars << sdvar
+      end
+    end
+    sdvars
+  end
+  
   def self.get_distances_from_trendline(xcol, ycol, ar_ary) #also generates the trendline
     points = ar_ary.map { |r| [r[xcol.to_sym], r[ycol.to_sym]] }
     regression_formula = MathHelper.get_linear_regression_values(ar_ary, xcol, ycol)
