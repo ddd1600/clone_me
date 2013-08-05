@@ -13,7 +13,6 @@ class LoadJson
       end
       r.save
     end
-    nil
   end
   
 end

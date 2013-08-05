@@ -5,7 +5,6 @@ class DumpJson
     File.open(File.join(Rails.root, 'lib', 'assets', "#{name}.json"), 'w') do |f|
       f.write(ary.to_json)
     end
-    nil
   end
   
   def self.go_specific(ary, classy)
@@ -13,6 +12,5 @@ class DumpJson
     File.open(File.join(Rails.root, 'lib', 'assets', "#{name}.json"), 'w') do |f|
       f.write(ary.to_json)
     end
-    nil
   end
 end
