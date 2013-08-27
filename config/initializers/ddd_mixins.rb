@@ -4,7 +4,7 @@ module AlterColumn
     def stats
       count = Hash.new(0)
       self.each { |el| counts[el] += 1 }
-      counts
+      counts.sort_by {|k, v| v}
     end
   end
   
