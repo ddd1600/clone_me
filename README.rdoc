@@ -2,6 +2,6 @@ This is a rails app that I continually add basic functionality to.
 
 It's a little bit out of date as of October 2013 with regard to some of my most used functions, but when I start doing GIS/Ruby work on multiple applications, I suppose I'll add my rgeo/postgis stuff too.
 
-This rails app has twitter bootstrap on it. One version back from the latest as of this date. Most of its other methods are either in `config/initializers/ddd_m_patches.rb` & `lib/`.
+This rails app has twitter bootstrap on it. One version back from the latest as of this date. Most of its other methods are either in `config/initializers/ddd_m_patches.rb` or `lib/*/*`.
 
 I've used `lib`'s asset & tasks folders for my own purposes without knowing what they were originally intended for. See the stock_code folder (may not be exact name) in lib for that.
